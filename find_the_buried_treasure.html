@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Find the Buried Treasure</title>
+    </head>
+    <body>
+        <h1>Find the Buried Treasure</h1>
+        <img id="map" width=400 height=400 src="http://nostarch.com/images/treasuremap.png">
+        <p id="distance"></p>
+        <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+        <script>
+            // pick a random treasure location
+
+            let getRandomNumber = function(size){
+                return Math.floor(Math.random() * size);
+            };
+
+            let width = 400;
+            let height = 400;
+            let target = {
+                x: getRandomNumber(width),
+                y: getRandomNumber(height)
+            };
+            
+            let getDistanceHint = function(distance){
+                if(distance < 10){
+                    return "Boiling hot!"
+                }else if(distance < 20){
+                    return 'Really hot!'
+                }else if(distance < 40){
+                    return 'Hot';
+                }else if(distance < 80){
+                    return 'warm';
+                }else if(distance < 160){
+                    return 'Cold'
+                }else if(distance < 320){
+                    return 'Really Cold'
+                }else{
+                    return 'Freezing!'
+                }
+            };
+
+            let getDistance = function(event, target){
+                let diffX = event.offSetX - target.x;
+                let diffY = event.offSetY - target.y;
+                return Math.sqrt((diffX * diffX)+(diffY * diffY));
+            }
+
+                        // click handler
+                        let clicks = 0;
+            $("#map").click(function(event){
+                clicks++;
+                let distance = getDistance(event, target);
+                let distanceHint = getDistanceHint(distance);
+
+                $("#distance").text(distanceHint);
+
+                if(distance < 8){
+                    alert("Found the treasure in"+ clicks +"clicks!");
+                }
+            });
+        </script>
+    </body>
+</html>
