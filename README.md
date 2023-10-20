@@ -1,4 +1,4 @@
-# Hangman game using javascrpt
+# game 1: Hangman game using javascrpt
 # pseudocode
 ```
 Pick a random word
@@ -20,3 +20,5 @@ while word is not guessed{
 
 Congratulate the user on guessing the word!
 ```
+
+# game 2:  find the buried treasure
