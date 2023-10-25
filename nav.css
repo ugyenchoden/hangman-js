@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.navContainer{
+    background-color: #2b2d43;
+    display: flex;
+    flex-wrap: row wrap;
+    justify-content: stretch;
+}
+
+.navContainer li{
+    list-style-type: none;
+}
+
+.navContainer a{
+    display: inline-block;
+    padding: 25px;
+    margin: 0 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navContainer a:hover{
+    background-color: lightsteelblue;
+}
